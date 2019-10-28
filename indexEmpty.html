@@ -1,0 +1,51 @@
+<html>
+<body>
+<ul id="parent">
+  <li>1</li>
+  <li>3</li>
+  <li>4</li>
+</ul>
+<input type='number' id='number'>
+<button id='rearrange'>Sort</button>
+<span></span>
+</body>
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'></script>
+
+<script>
+
+  
+    $("#rearrange").click(function(){
+       val=parseInt($("#number").val())
+        
+         $($("li").get().reverse()).each(function(){
+            console.log(typeof $(this).text());
+            if(parseInt($(this).text())<val)
+            {
+               $(this).after("<li>"+val+"</li>");
+              return false;
+            }
+             
+        });
+        //Animate(val);
+        
+    });
+    function Animate(val)
+    {
+      lis=$("li");
+      countoflis=lis.length;
+      k=0;
+      $(lis.get().reverse()).each(function(){
+           
+            if($(this).text()<val)
+            {
+              return false;
+            }
+             k++; 
+        });
+      $("span").html(countoflis+" "+k+" "+(countoflis-k));
+    }
+
+</script>
+
+</html>
